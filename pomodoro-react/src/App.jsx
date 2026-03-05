@@ -402,6 +402,9 @@ export default function App() {
             currentTrackData={music.currentTrackData}
             toggleMusic={music.toggleMusic}
             musicOn={music.musicOn}
+            musicProvider={music.musicProvider}
+            connectMusicProvider={music.connectMusicProvider}
+            externalPlayerUrl={music.externalPlayerUrl}
           />
         )}
 
@@ -442,7 +445,7 @@ export default function App() {
           importCommunityGallery={backgrounds.importCommunityGallery}
           musicCategory={music.musicCategory}
           setMusicCategory={music.setMusicCategory}
-          connectMusicProvider={music.connectMusicProvider}
+          setCustomYouTubeTrack={music.setCustomYouTubeTrack}
           musicProvider={music.musicProvider}
           disconnectMusicProvider={music.disconnectMusicProvider}
           changeTrack={music.changeTrack}
@@ -482,15 +485,6 @@ export default function App() {
           exportCustomMetricsPresets={exportCustomMetricsPresets}
           importCustomMetricsPresets={importCustomMetricsPresets}
         />
-
-        {music.externalPlayerUrl && (
-          <iframe
-            title="external-audio-player"
-            src={music.externalPlayerUrl}
-            allow="autoplay; encrypted-media"
-            className="hidden-player"
-          />
-        )}
       </main>
     </div>
   );

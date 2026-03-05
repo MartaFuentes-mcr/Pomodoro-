@@ -63,7 +63,7 @@ export const BACKGROUNDS = [
   {
     name: "minimal claro",
     category: "minimal",
-    url: "https://images.unsplash.com/photo-1493244040629-496f6d136cc3?auto=format&fit=crop&w=2400&q=80",
+    url: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=2400&q=80",
   },
   {
     name: "minimal arena",

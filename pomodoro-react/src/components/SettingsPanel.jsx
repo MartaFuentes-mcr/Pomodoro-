@@ -38,7 +38,7 @@ export default function SettingsPanel({
   importCommunityGallery,
   musicCategory,
   setMusicCategory,
-  connectMusicProvider,
+  setCustomYouTubeTrack,
   musicProvider,
   disconnectMusicProvider,
   changeTrack,
@@ -82,6 +82,8 @@ export default function SettingsPanel({
   const [importStatus, setImportStatus] = useState("");
   const [popularSearch, setPopularSearch] = useState("");
   const [popularCategory, setPopularCategory] = useState("all");
+  const [youtubeUrlInput, setYoutubeUrlInput] = useState("");
+  const [youtubeUrlMessage, setYoutubeUrlMessage] = useState("");
   const importFileRef = useRef(null);
   const metricSectionLabels = {
     kpi: "KPIs",
@@ -117,6 +119,16 @@ export default function SettingsPanel({
       return `${item.name} ${category}`.toLowerCase().includes(query);
     });
   }, [popularSearch, popularCategory]);
+
+  function onApplyYoutubeUrl() {
+    const ok = setCustomYouTubeTrack(youtubeUrlInput);
+    if (!ok) {
+      setYoutubeUrlMessage("Enlace invalido");
+      return;
+    }
+    setYoutubeUrlMessage("Enlace aplicado");
+    setYoutubeUrlInput("");
+  }
 
   return (
     <aside className={`settings-panel ${settingsOpen ? "open" : "closed"}`}>
@@ -382,18 +394,24 @@ export default function SettingsPanel({
           </button>
         </div>
         <div className="background-list music-connect-row">
-          <button type="button" className="bg-option" onClick={() => connectMusicProvider("spotify")}>
-            conectar spotify
-          </button>
-          <button type="button" className="bg-option" onClick={() => connectMusicProvider("youtube")}>
-            conectar youtube music
-          </button>
           {musicProvider && (
             <button type="button" className="bg-option" onClick={disconnectMusicProvider}>
               desconectar
             </button>
           )}
         </div>
+        <div className="music-link-row">
+          <input
+            type="text"
+            value={youtubeUrlInput}
+            onChange={(e) => setYoutubeUrlInput(e.target.value)}
+            placeholder="pega enlace youtube o youtube music"
+          />
+          <button type="button" className="bg-option" onClick={onApplyYoutubeUrl}>
+            usar en youtube
+          </button>
+        </div>
+        {youtubeUrlMessage && <p className="hint-text">{youtubeUrlMessage}</p>}
         <p className="hint-text">
           estado: {musicProvider ? `conectado con ${musicProvider === "youtube" ? "youtube music" : musicProvider}` : "sin conectar"}
         </p>

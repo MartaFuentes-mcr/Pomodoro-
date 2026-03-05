@@ -1,6 +1,7 @@
 export const COMMUNITY_STORAGE_KEY = "focus-atelier-community-backgrounds";
 export const TIMER_SETTINGS_STORAGE_KEY = "focus-atelier-timer-settings";
 export const MUSIC_PROVIDER_STORAGE_KEY = "focus-atelier-music-provider";
+export const YOUTUBE_EMBED_STORAGE_KEY = "focus-atelier-youtube-embed-url";
 export const STUDY_STATS_STORAGE_KEY = "focus-atelier-study-stats";
 export const TODO_STORAGE_KEY = "focus-atelier-todos";
 export const DAILY_GOAL_STORAGE_KEY = "focus-atelier-daily-goal";

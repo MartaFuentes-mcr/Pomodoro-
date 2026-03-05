@@ -2410,6 +2410,117 @@ body {
   background: #c9f7e8;
 }
 
+.spotify-pop {
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  background: linear-gradient(160deg, #1aa34a, #13823b);
+  box-shadow: 0 8px 18px rgba(8, 24, 15, 0.42);
+  transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+}
+
+.spotify-pop:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(8, 24, 15, 0.48);
+  filter: saturate(1.06);
+}
+
+.provider-pops {
+  position: absolute;
+  right: -88px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.spotify-pop.outside {
+  position: relative;
+}
+
+.spotify-pop.linked {
+  background: linear-gradient(160deg, #1db954, #169448);
+}
+
+.spotify-pop.provider-youtube.linked {
+  background: linear-gradient(160deg, #ff3a33, #d61916);
+}
+
+.spotify-pop.provider-youtube {
+  background: linear-gradient(160deg, #ff3a33, #d61916);
+}
+
+.spotify-pop.on {
+  background: linear-gradient(160deg, #22d864, #1db954);
+  box-shadow: 0 0 0 3px rgba(30, 215, 96, 0.18), 0 8px 18px rgba(8, 24, 15, 0.42);
+}
+
+.spotify-pop.provider-youtube.on {
+  background: linear-gradient(160deg, #ff4c45, #e6211e);
+  box-shadow: 0 0 0 3px rgba(255, 76, 69, 0.18), 0 8px 18px rgba(8, 24, 15, 0.42);
+}
+
+.spotify-glyph {
+  width: 20px;
+  height: 15px;
+  position: relative;
+  display: block;
+}
+
+.spotify-glyph i {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-top: 2.2px solid rgba(255, 255, 255, 0.97);
+  border-radius: 999px;
+}
+
+.spotify-glyph i:nth-child(1) {
+  top: 0;
+  width: 19px;
+}
+
+.spotify-glyph i:nth-child(2) {
+  top: 5px;
+  width: 16px;
+}
+
+.spotify-glyph i:nth-child(3) {
+  top: 10px;
+  width: 13px;
+}
+
+.youtube-glyph {
+  position: relative;
+  width: 14px;
+  height: 14px;
+}
+
+.youtube-glyph::before {
+  content: "";
+  position: absolute;
+  inset: -6px -8px;
+  border-radius: 8px;
+  background: rgba(138, 8, 8, 0.25);
+}
+
+.youtube-glyph::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 10px solid rgba(255, 255, 255, 0.99);
+}
+
 .dock-meta {
   display: grid;
 }
@@ -2699,13 +2810,58 @@ body {
   margin-top: 8px;
 }
 
-.hidden-player {
-  position: fixed;
-  width: 1px;
-  height: 1px;
+.music-link-row {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+}
+
+.music-link-row input {
+  min-width: 0;
+  border: 1px solid rgba(124, 240, 255, 0.45);
+  background: rgba(6, 20, 41, 0.82);
+  color: #e9fbff;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-family: inherit;
+}
+
+.spotify-popup {
+  position: absolute;
+  right: -58px;
+  bottom: 52px;
+  width: 340px;
+  height: 156px;
+  border-radius: 14px;
+  border: 1px solid rgba(124, 240, 255, 0.3);
+  background: rgba(5, 16, 32, 0.96);
+  box-shadow: 0 16px 34px rgba(2, 10, 24, 0.45);
+  overflow: hidden;
+  z-index: 25;
+}
+
+.spotify-popup-close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(6, 18, 36, 0.76);
+  color: #d9faff;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.spotify-popup-frame {
+  width: 100%;
+  height: 100%;
   border: 0;
-  opacity: 0;
-  pointer-events: none;
+  display: block;
 }
 
 .slider-row {
@@ -2887,6 +3043,28 @@ body {
     width: 40px;
     height: 40px;
     font-size: 16px;
+  }
+
+  .spotify-pop {
+    width: 33px;
+    height: 33px;
+  }
+
+  .spotify-pop.outside {
+    position: static;
+  }
+
+  .provider-pops {
+    right: 2px;
+    top: -38px;
+    transform: none;
+    gap: 6px;
+  }
+
+  .spotify-popup {
+    right: 0;
+    bottom: 46px;
+    width: min(360px, 92vw);
   }
 
   .dock-meta strong {
@@ -3091,6 +3269,13 @@ body {
   .settings-panel {
     width: 100vw;
     max-width: 100vw;
+  }
+
+  .spotify-popup {
+    right: 0;
+    bottom: 44px;
+    width: min(340px, 92vw);
+    height: 152px;
   }
 
   .todo-ui-main {
