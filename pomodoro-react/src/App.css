@@ -2873,9 +2873,33 @@ body {
   }
 
   .player-dock {
+    position: fixed;
     left: 12px;
     right: 12px;
+    bottom: max(12px, env(safe-area-inset-bottom));
+    z-index: 20;
+    gap: 8px;
+    padding: 7px 10px 7px 7px;
     border-radius: 14px;
+  }
+
+  .btn-play {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .dock-meta strong {
+    font-size: 1rem;
+  }
+
+  .dock-meta span {
+    font-size: 0.74rem;
+  }
+
+  .dock-small {
+    padding: 7px 8px;
+    font-size: 0.8rem;
   }
 
   .metrics-grid {
@@ -2935,11 +2959,41 @@ body {
   .todo-ui {
     grid-template-columns: 1fr;
     width: min(96vw, 760px);
+    min-height: 0;
+    margin: 0 auto;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .todo-ui-detail {
     border-left: none;
     border-top: 1px solid #e8e8e8;
+  }
+
+  .todo-main {
+    display: block;
+    min-height: 100dvh;
+    height: 100dvh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 110px 0 24px;
+  }
+
+  .todo-ui-main,
+  .todo-ui-detail,
+  .todo-ui-sidebar {
+    overflow-y: visible;
+  }
+
+  .todo-ui-compose-row {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .todo-ui-compose-row div {
+    margin-left: 0;
+    width: 100%;
+    justify-content: flex-end;
   }
 
   .todo-modal-body {
@@ -2951,12 +3005,30 @@ body {
     border-bottom: 1px solid #e6e6e6;
   }
 
+  .todo-modal {
+    max-height: 90dvh;
+  }
+
+  .todo-modal-main,
+  .todo-modal-side {
+    overflow-y: auto;
+  }
+
   .library-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .library-motion-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 920px) {
+  .player-dock {
+    left: 18px;
+    right: 18px;
+    max-width: 520px;
+    margin: 0 auto;
   }
 }
 
@@ -3019,6 +3091,14 @@ body {
   .settings-panel {
     width: 100vw;
     max-width: 100vw;
+  }
+
+  .todo-ui-main {
+    padding: 20px 14px;
+  }
+
+  .todo-ui-detail {
+    padding: 14px;
   }
 }
 
