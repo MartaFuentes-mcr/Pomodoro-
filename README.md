@@ -1,4 +1,5 @@
-<img width="1897" height="903" alt="image" src="https://github.com/user-attachments/assets/68d9da99-acac-4010-8075-3cf301dbc1da" />
+<img width="1911" height="897" alt="image" src="https://github.com/user-attachments/assets/c2cdd00c-b106-4d6d-a817-b26f8350a177" />
+
 
 # Study Sanctuary
 
